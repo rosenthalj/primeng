@@ -440,6 +440,12 @@ export class MegaMenu implements AfterContentInit, OnDestroy, OnInit {
      */
     @Input() orientation: 'horizontal' | 'vertical' | string = 'horizontal';
     /**
+     * Whether to show a root submenu on mouse over.
+     * @defaultValue true
+     * @group Props
+     */
+    @Input({ transform: booleanAttribute }) autoDisplay: boolean | undefined = true;
+    /**
      * Current id state as a string.
      * @group Props
      */
@@ -632,7 +638,9 @@ export class MegaMenu implements AfterContentInit, OnDestroy, OnInit {
 
     onItemMouseEnter(event: any) {
         if (!DomHandler.isTouchDevice()) {
-            this.onItemChange(event);
+            if(this.autoDisplay || this.dirty) {
+                this.onItemChange(event);
+            }
         }
     }
 

@@ -15213,6 +15213,14 @@
                             "description": "Defines the orientation."
                         },
                         {
+                            "name": "autoDisplay",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Whether to show a root submenu on mouse over."
+                        },
+                        {
                             "name": "id",
                             "optional": false,
                             "readonly": false,
